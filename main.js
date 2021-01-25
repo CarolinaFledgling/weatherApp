@@ -1,3 +1,6 @@
+// const axios = require('axios');
+
+
 const input = document.querySelector('.main-info__input')
 const btn = document.querySelector('.main-info__btn')
 const cityName = document.querySelector('.main-info__title')
@@ -27,6 +30,12 @@ let url;
 // Następnie tworzymy funkcję getWeather która będzie pobierać nasze dane z API
 
 const getWeather = () => {
-    city = input.nodeValue;
-    ulr = apiLink + city + apiKey + units;
+    // city = input.nodeValue;
+    city = 'London';
+    url = apiLink + city + apiKey + units;
+
+    axios.get(url)
+        .then(res => console.log(res))
 }
+
+getWeather()
