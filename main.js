@@ -46,13 +46,43 @@ const getWeather = () => {
     //     .then(res => console.log(res))
 
     axios.get(url)
-        .then(res => {  // res jest to nasz obiekt krory pobralismy z  naszego API 
+        .then(res => { // res jest to nasz obiekt krory pobralismy z  naszego API 
             console.log(res.data.main);
             const temp = res.data.main.temp;
             const hum = res.data.main.humidity;
+            const status = Object.assign({}, ...res.data.weather)
             cityName.textContent = res.data.name;
             temperature.textContent = Math.floor(temp) + ' ℃';
             humidity.textContent = Math.floor(hum) + ' %';
+
+            console.log(res.data.weather) // mamy tablice w której jest obiekt ,potrzebujemy miec tylko obiekt aby móc dostac sie to Id ( key i wartosc),status - następnie musimy dostać sie do właścwosci weather , mamy tablice, musimy zamienic ja na obiekt ( operator spread i object assign)
+            console.log(status);
+            weather.textContent = status.main;
+
+            // następnie potrzebujemy zrobic instrukcje warunkowa która w zależnosci od pobranego id bedzie otrzymywac inne zdjecie 
+
+            if (status.id >= 200 && status.id < 300) {
+                photo.setAttribute('src', './img/thunderstorm.png');
+            } else if (status.id >= 300 && status.id < 400) {
+                photo.setAttribute('src', './img/drizzle.png');
+            } else if (status.id >= 500 && status.id < 600) {
+                photo.setAttribute('src', './img/rain.png');
+            } else if (status.id >= 600 && status.id < 700) {
+                photo.setAttribute('src', './img/ice.png');
+            } else if (status.id >= 700 && status.id < 800) {
+                photo.setAttribute('src', './img/fog.png');
+            } else if (status.id === 800) {
+                photo.setAttribute('src', './img/sun.png');
+            } else if (status.id > 800 && status.id < 900) {
+                photo.setAttribute('src', './img/cloud.png');
+            } else {
+                photo.setAttribute('src', './img/unknown.png');
+            };
+
+
+
+
+
         })
 }
 
