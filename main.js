@@ -19,8 +19,8 @@ const humidity = document.querySelector('.weather-info__humidity')
 // Nasz Link będzie wyglądał ApiLink +&ApiKey +&units
 
 const apiLink = 'api.openweathermap.org/data/2.5/weather?q=';
-const apiKey = '&appid=fa7a6052a41b9493569175c0523e195d';
-const units = '&units=metric'
+const apiKey = 'fa7a6052a41b9493569175c0523e195d';
+const units = '&units=metric';
 
 // Następnie tworzymy dwie zmienne city - będzie przechowywać to co wpisaliśmy ulr bedzie przechowywac nasz link 
 
@@ -32,9 +32,11 @@ let url;
 const getWeather = () => {
     // city = input.nodeValue;
     city = 'London';
-    url = apiLink + city + apiKey + units;
 
-    axios.get(url)
+    url =`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`
+   
+
+    fetch(url)
         .then(res => console.log(res))
 }
 
