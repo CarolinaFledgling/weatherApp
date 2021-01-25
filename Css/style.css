@@ -21,7 +21,7 @@ body {
 .wrapper {
   width: 800px;
   height: 400px;
-  background-color: rgb(91, 72, 78, 0.8);
+  background-color: #62A87C;
   border-radius: 10px;
   padding: 1rem;
 }
@@ -73,7 +73,7 @@ body {
   color: #001414;
   font-weight: bold;
   letter-spacing: 0.5px;
-  background-color: #F2E86D;
+  background-color: #fff;
   border-radius: 5px;
   border: none;
   text-transform: uppercase;
@@ -83,7 +83,7 @@ body {
 
 .main-info__btn:hover {
   color: #001414;
-  background-color: #EBDA1E;
+  background-color: rgba(255, 255, 255, 0.753);
 }
 
 .main-info__img {
@@ -114,10 +114,11 @@ body {
 .headings {
   height: 35%;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  color: #FFF07C;
 }
 
 .weather-info {
