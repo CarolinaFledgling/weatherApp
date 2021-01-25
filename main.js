@@ -1,4 +1,8 @@
 // const axios = require('axios');
+// const app = axios()
+
+
+
 
 
 const input = document.querySelector('.main-info__input')
@@ -33,11 +37,23 @@ const getWeather = () => {
     // city = input.nodeValue;
     city = 'London';
 
-    url =`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`
-   
+    url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`
 
-    fetch(url)
-        .then(res => console.log(res))
+
+    // fetch(url)
+    //     // res tutaj to odpowiedz z naszego API 
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+
+    axios.get(url)
+        .then(res => {  // res jest to nasz obiekt krory pobralismy z  naszego API 
+            console.log(res.data.main);
+            const temp = res.data.main.temp;
+            const hum = res.data.main.humidity;
+            cityName.textContent = res.data.name;
+            temperature.textContent = Math.floor(temp) + ' ℃';
+            humidity.textContent = Math.floor(hum) + ' %';
+        })
 }
 
 getWeather()
