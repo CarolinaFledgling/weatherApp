@@ -34,8 +34,8 @@ let url;
 // Następnie tworzymy funkcję getWeather która będzie pobierać nasze dane z API
 
 const getWeather = () => {
-    // city = input.nodeValue;
-    city = 'London';
+    city = (!input.value) ? 'New York' : input.value;
+    // city = 'Jaworzno';
 
     url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`
 
@@ -61,6 +61,8 @@ const getWeather = () => {
 
             // następnie potrzebujemy zrobic instrukcje warunkowa która w zależnosci od pobranego id bedzie otrzymywac inne zdjecie 
 
+            input.value = '';
+            warning.textContent = '';
             if (status.id >= 200 && status.id < 300) {
                 photo.setAttribute('src', './img/thunderstorm.png');
             } else if (status.id >= 300 && status.id < 400) {
@@ -78,12 +80,22 @@ const getWeather = () => {
             } else {
                 photo.setAttribute('src', './img/unknown.png');
             };
-
-
-
-
-
         })
+        .catch(() => warning.textContent = 'Please enter a valid City')
 }
 
-getWeather()
+
+const enterCheck = (event) => {
+    if (event.keyCode === 13) {
+        getWeather()
+    }
+}
+
+// Pogoda ma sie nam pobrac z naszego API po naciśnieciu guzika SEND, wiec
+
+getWeather() // musi byc wywołana tutaj żeby pobrac domyślne rzeczy 
+btn.addEventListener('click', getWeather);
+input.addEventListener('keyup', enterCheck);
+
+// mamy problem bo użytkownik po wejściu na naszą app nic nie dostaj ,brak obrazka , musimy ustawić wartości domyślne i użyć operatora warunkowego 
+// operator warunkowy () ?  true: false ,który będzie nam sprawdzał że jeżeli nasz input.value jest pusty ustaw wartosc domyślna jesli nie to weź to co wpisaliśmy 
