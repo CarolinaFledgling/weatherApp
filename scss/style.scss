@@ -1,0 +1,74 @@
+@import 'modules/main-info.scss';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fffffa;
+}
+
+.wrapper {
+    width: 800px;
+    height: 400px;
+    background-color: #62A87C;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.top {
+    height: 260px;
+
+    &__title {
+        text-align: center;
+        padding: 10px;
+        color: rgb(243, 243, 243);
+    }
+}
+
+
+/* Botttom */
+
+.bottom {
+    height: 140px;
+}
+
+.headings,
+.weather-info {
+    display: flex;
+    align-items: center;
+}
+
+.headings p,
+.weather-info p {
+    width: 33.3%;
+    text-align: center;
+}
+
+.headings {
+    height: 35%;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #FFF07C;
+}
+
+.weather-info {
+    height: 65%;
+    font-size: 1.5rem;
+}

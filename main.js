@@ -1,3 +1,5 @@
+// import {enterCheck} from './study.js';
+
 // Global variables 
 const input = document.querySelector('.main-info__input')
 const btn = document.querySelector('.main-info__btn')
@@ -54,16 +56,12 @@ const getWeather = () => {
         .catch(() => warning.textContent = 'Please enter a valid City')
 }
 
-const enterCheck = (event) => {
-    if (event.keyCode === 13) {
-        getWeather()
-    }
-}
+
 
 getWeather()
 
 btn.addEventListener('click', getWeather);
-input.addEventListener('keyup', enterCheck);
+// input.addEventListener('keyup', enterCheck);
 
 
 // operator warunkowy który będzie nam sprawdzał że jeżeli nasz input.value jest pusty ustaw wartosc domyślna jesli nie to weź to co wpisaliśmy 
