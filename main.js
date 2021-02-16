@@ -31,7 +31,6 @@ const getWeather = () => {
             temperature.textContent = Math.floor(temp) + ' ℃';
             humidity.textContent = Math.floor(hum) + ' %';
             weather.textContent = status.main;
-
             input.value = '';
             warning.textContent = '';
             if (status.id >= 200 && status.id < 300) {
@@ -68,3 +67,4 @@ input.addEventListener('keyup', enterCheck);
 
 
 // operator warunkowy który będzie nam sprawdzał że jeżeli nasz input.value jest pusty ustaw wartosc domyślna jesli nie to weź to co wpisaliśmy 
+
