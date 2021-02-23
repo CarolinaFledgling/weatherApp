@@ -6,6 +6,7 @@ const {
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
@@ -18,8 +19,7 @@ module.exports = {
     }, // ma kierowac na katalog dis
     stats: 'verbose',
     module: {
-        rules: [
-            {
+        rules: [{
             test: /\.m?js$/,
             exclude: /node_modules/,
             use: {
@@ -32,7 +32,20 @@ module.exports = {
                     ]
                 }
             }
-        }]
+        }, {
+            test: /\.s[ac]ss$/i,
+            use: [
+                // Creates `style` nodes from JS strings
+                "style-loader",
+                // Translates CSS into CommonJS
+                "css-loader",
+                // Compiles Sass to CSS
+                "sass-loader",
+            ],
+        }, {
+            test: /\.s[ac]ss$/i,
+            use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader"],
+        }, ]
     },
     plugins: [
         new WorkboxPlugin.GenerateSW(),
@@ -42,7 +55,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
-            dry: true,
+            dry: false, // 
             // Write Logs to Console
             verbose: true,
             // Automatically remove all unused webpack assets on rebuild
@@ -51,6 +64,11 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css"
+        }), new CopyPlugin({
+            patterns: [{
+                from: "./src/img",
+                to: "./img"
+            }, ],
         }),
     ]
 
