@@ -1,5 +1,3 @@
-// import {enterCheck} from './study.js';
-
 // Global variables 
 const input = document.querySelector('.main-info__input')
 const btn = document.querySelector('.main-info__btn')
@@ -15,16 +13,15 @@ const apiKey = 'fa7a6052a41b9493569175c0523e195d';
 const units = '&units=metric';
 
 
-let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
 const getWeather = () => {
-    const city = (!input.value) ? 'New York' : input.value;
+    const city = (!input.value) ? 'New York' : input.value; // operator warunkowy : po wejsciu na strone sprawdzamy czy input jest pusty jesli, tak to ładuje New York jesli nie to nasza wartość  
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${units}`;
 
-    axios.get(url)
-        // if we use fetch .then(res => res.json())
-        .then(res => { //
+
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
             console.log(res);
             const temp = res.data.main.temp;
             const hum = res.data.main.humidity;
@@ -35,6 +32,7 @@ const getWeather = () => {
             weather.textContent = status.main;
             input.value = '';
             warning.textContent = '';
+
             if (status.id >= 200 && status.id < 300) {
                 photo.setAttribute('src', './img/thunderstorm.png');
             } else if (status.id >= 300 && status.id < 400) {
@@ -56,13 +54,16 @@ const getWeather = () => {
         .catch(() => warning.textContent = 'Please enter a valid City')
 }
 
+const enterCheck = (event) => {
+    if (event.keyCode === 13) {
+        getWeather()
+    }
+}
 
 
 getWeather()
 
 btn.addEventListener('click', getWeather);
-// input.addEventListener('keyup', enterCheck);
+input.addEventListener('keyup', enterCheck);
 
-
-// operator warunkowy który będzie nam sprawdzał że jeżeli nasz input.value jest pusty ustaw wartosc domyślna jesli nie to weź to co wpisaliśmy 
 
