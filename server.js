@@ -22,7 +22,7 @@ const cors = require('cors')
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('.')); 
+app.use(express.static('dist')); 
 
 
 // Setup Server  - 
@@ -36,6 +36,9 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
+// app.get('/', function (req, res) {
+//     res.sendFile('dist/index.html')
+// })
 
 
 
