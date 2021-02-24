@@ -9,10 +9,11 @@ module.exports = {
     mode: 'production',
     entry: "./src/js/main.js",
     output: {
-        filename: "bundle.min.js", 
-        path: path.resolve(__dirname, "./dist"), 
-        module: {
-            rules: [{
+        filename: "bundle.min.js",
+        path: path.resolve(__dirname, "./dist"),
+    },
+    module: {
+        rules: [{
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
@@ -25,8 +26,24 @@ module.exports = {
                         ]
                     }
                 }
-            }]
-        }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
+                ],
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader"],
+            },
+
+        ]
+
     },
     plugins: [
         new WorkboxPlugin.GenerateSW(),
