@@ -1,4 +1,7 @@
-import{sayHi} from'./someFns/simpleFn'
+import {
+    sayHi
+} from '../js/someFns/simpleFn'
+sayHi()
 
 import '../scss/style.scss'
 
@@ -74,8 +77,8 @@ btn.addEventListener('click', getWeather);
 input.addEventListener('keyup', enterCheck);
 
 
-const someFn=function(){
-    console.log(' hihi')
+const someFn = function () {
+    console.log('some function from main.js')
 }
 
 someFn()

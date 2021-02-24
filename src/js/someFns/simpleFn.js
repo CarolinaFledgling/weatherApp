@@ -1,5 +1,5 @@
 const sayHi = function () {
-    console.log('I am function from simpleFn file')
+    console.log('HI I am function from simpleFn file')
 }
 
 export {
