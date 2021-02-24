@@ -1,3 +1,5 @@
+import{sayHi} from'./someFns.js/simpleFn'
+
 import '../scss/style.scss'
 
 // Global variables 
@@ -70,3 +72,10 @@ getWeather()
 
 btn.addEventListener('click', getWeather);
 input.addEventListener('keyup', enterCheck);
+
+
+const someFn=function(){
+    console.log(' hihi')
+}
+
+someFn()

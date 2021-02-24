@@ -12,11 +12,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
-    entry: "./src/js/main.js", // skąd ma bundlowac 
-    output: {
-        filename: "bundle.min.js", //filename konkretną ścieżkę do pliku // do czego ma bundlowac
+    entry: "./src/js/main.js", // our entry file 
+    output: { // where to emit and how to to name these files
+        filename: "bundle.min.js", 
         path: path.resolve(__dirname, "./dist")
-    }, // ma kierowac na katalog dis
+    }, 
     stats: 'verbose',
     module: {
         rules: [{
