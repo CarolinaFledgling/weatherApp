@@ -111,7 +111,7 @@ define("./service-worker.js",['./workbox-f0e3ab47'], function (workbox) { 'use s
     "revision": "75d3d9a7d0d4fada632b2738ffa7761a"
   }, {
     "url": "bundle.min.js",
-    "revision": "c3cac6118c5f1457ebe01bd91ce8f0a8"
+    "revision": "65038e31dc9a7666e99a4ebfc6761f1c"
   }, {
     "url": "img/Group 1.svg",
     "revision": "48dc57300a8c86eca111cb2df7b423e9"
@@ -144,7 +144,7 @@ define("./service-worker.js",['./workbox-f0e3ab47'], function (workbox) { 'use s
     "revision": "830abcd021b873c25faee09c6cc44c79"
   }, {
     "url": "main.css",
-    "revision": "dbd1174bbc84a555810b7edb19f493e4"
+    "revision": "eb9c361ef39b53d94d1a3d13ffc9544c"
   }], {});
 
 });

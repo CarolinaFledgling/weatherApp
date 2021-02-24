@@ -7,10 +7,10 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: "./src/js/main.js", // skąd ma bundlowac 
+    entry: "./src/js/main.js",
     output: {
-        filename: "bundle.min.js", //filename konkretną ścieżkę do pliku // do czego ma bundlowac
-        path: path.resolve(__dirname, "./dist"), // ma kierowac na katalog dis
+        filename: "bundle.min.js", 
+        path: path.resolve(__dirname, "./dist"), 
         module: {
             rules: [{
                 test: /\.m?js$/,

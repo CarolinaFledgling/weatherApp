@@ -1,6 +1,4 @@
-import {
-    sayHi
-} from '../js/someFns/simpleFn'
+import {sayHi} from '../js/someFns/simpleFn'
 sayHi()
 
 import '../scss/style.scss'
@@ -78,7 +76,7 @@ input.addEventListener('keyup', enterCheck);
 
 
 const someFn = function () {
-    console.log('some function from main.js')
+    console.log('some function from main.js here')
 }
 
 someFn()
