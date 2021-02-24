@@ -1,4 +1,4 @@
-import{sayHi} from'./someFns.js/simpleFn'
+import{sayHi} from'./someFns/simpleFn'
 
 import '../scss/style.scss'
 
